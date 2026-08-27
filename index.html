@@ -1,27 +1,42 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Luna — Please Help Me Get Home</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
-    content="If you found this cat, please share your location and contact the owner."
+    content="If you found Bella, please share your location and contact the owner."
   >
 
+  <title>Bella — Please Help Me Get Home</title>
+
+
   <style>
+
     * {
       box-sizing: border-box;
     }
+
 
     body {
       margin: 0;
       background: #f3f4f6;
       color: #111827;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
     }
+
 
     .container {
       max-width: 620px;
@@ -29,581 +44,995 @@
       padding: 18px;
     }
 
+
     .card {
       background: white;
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 15px 45px rgba(0,0,0,.10);
+
+      box-shadow:
+        0 15px 45px
+        rgba(0, 0, 0, 0.10);
     }
+
+
+    /* =========================
+       HEADER
+    ========================= */
 
     .hero {
       background: #111827;
       color: white;
+
       text-align: center;
-      padding: 28px 22px;
+
+      padding:
+        30px
+        22px;
     }
+
 
     .badge {
       display: inline-block;
+
       background: white;
       color: #111827;
-      padding: 7px 12px;
+
+      padding:
+        7px
+        14px;
+
       border-radius: 999px;
+
       font-size: 12px;
       font-weight: 800;
+
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
+
 
     h1 {
       font-size: 30px;
       line-height: 1.1;
-      margin: 16px 0 8px;
+
+      margin:
+        18px
+        0
+        8px;
     }
+
 
     .hero p {
       margin: 0;
       color: #d1d5db;
     }
 
+
+    /* =========================
+       CAT PHOTO
+    ========================= */
+
     .cat-photo {
       width: 100%;
+
       aspect-ratio: 4 / 3;
+
       object-fit: cover;
+
       display: block;
+
       background: #e5e7eb;
     }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
 
     .content {
       padding: 24px;
     }
 
+
     .notice {
       background: #fff7ed;
-      border: 1px solid #fed7aa;
+
+      border:
+        1px
+        solid
+        #fed7aa;
+
       border-radius: 16px;
-      padding: 15px;
-      margin-bottom: 20px;
+
+      padding: 16px;
+
+      margin-bottom: 22px;
     }
+
 
     .notice strong {
       display: block;
       margin-bottom: 5px;
     }
 
+
+    /* =========================
+       CAT DETAILS
+    ========================= */
+
     .details {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
       gap: 10px;
-      margin: 18px 0 24px;
+
+      margin:
+        18px
+        0
+        24px;
     }
+
 
     .detail {
       background: #f9fafb;
+
       border-radius: 14px;
-      padding: 13px;
+
+      padding: 14px;
     }
+
 
     .detail small {
       display: block;
+
       color: #6b7280;
+
       font-size: 12px;
-      margin-bottom: 4px;
+
+      margin-bottom: 5px;
     }
+
 
     .detail b {
       font-size: 15px;
     }
 
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
     .button {
       width: 100%;
-      border: 0;
+
+      border: none;
+
       border-radius: 14px;
-      padding: 16px 18px;
+
+      padding:
+        16px
+        18px;
+
       font-size: 16px;
       font-weight: 800;
+
       cursor: pointer;
+
       text-decoration: none;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
       gap: 8px;
+
       margin-top: 10px;
     }
+
 
     .primary {
       background: #111827;
       color: white;
     }
 
+
     .green {
       background: #16a34a;
       color: white;
     }
+
 
     .blue {
       background: #2563eb;
       color: white;
     }
 
+
     .gray {
       background: #e5e7eb;
       color: #111827;
     }
 
+
+    /* =========================
+       LOCATION BOX
+    ========================= */
+
     .location-box {
       display: none;
+
       background: #ecfdf5;
-      border: 1px solid #a7f3d0;
+
+      border:
+        1px
+        solid
+        #a7f3d0;
+
       border-radius: 16px;
-      padding: 15px;
+
+      padding: 16px;
+
       margin-top: 16px;
     }
+
 
     .location-box.show {
       display: block;
     }
 
+
     .location-status {
       font-size: 14px;
+
       color: #374151;
+
       margin-top: 8px;
     }
+
 
     .map-link {
       display: block;
+
       word-break: break-all;
+
       color: #047857;
-      margin-top: 8px;
+
+      margin-top: 10px;
     }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     .footer {
       text-align: center;
+
       color: #6b7280;
+
       font-size: 12px;
-      padding: 15px 0 20px;
+
+      padding:
+        18px
+        0
+        20px;
     }
 
+
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 430px) {
+
       .details {
         grid-template-columns: 1fr;
       }
+
+
+      h1 {
+        font-size: 27px;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
+
 
   <main class="card">
 
-    <!-- HEADER -->
+
+    <!-- =====================
+         HEADER
+    ====================== -->
+
     <section class="hero">
 
       <span class="badge">
         If you found me
       </span>
 
+
       <h1>
         🐱 Please help me get home
       </h1>
 
+
       <p>
         This page belongs to
-        <strong id="topName">Luna</strong>.
+        <strong id="topName">
+          Bella
+        </strong>.
       </p>
 
     </section>
 
 
-    <!-- CAT PHOTO -->
+
+    <!-- =====================
+         CAT PHOTO
+    ====================== -->
+
     <img
       id="catPhoto"
       class="cat-photo"
-      src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=85"
-      alt="Photo of Luna"
+
+      src="https://images.unsplash.com/photo-1618217947571-0d151453342e?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+
+      alt="Photo of Bella"
     >
 
 
+
+    <!-- =====================
+         MAIN CONTENT
+    ====================== -->
+
     <section class="content">
 
-      <!-- MESSAGE -->
+
+      <!-- HELP MESSAGE -->
+
       <div class="notice">
 
         <strong>
-          Thank you for stopping to help.
+          ❤️ Thank you for helping Bella!
         </strong>
 
-        If this cat is lost, the most useful thing you can do
-        is share the place where you found them.
+        If Bella is lost, please share the location
+        where you found her and contact her owner.
 
       </div>
 
 
-      <!-- CAT INFORMATION -->
+
+      <!-- =====================
+           CAT DETAILS
+      ====================== -->
+
       <div class="details">
 
-        <div class="detail">
-          <small>Name</small>
-          <b id="catName"></b>
-        </div>
 
         <div class="detail">
-          <small>Breed</small>
-          <b id="catBreed"></b>
+
+          <small>
+            Name
+          </small>
+
+          <b id="catName">
+            Bella
+          </b>
+
         </div>
 
-        <div class="detail">
-          <small>Color</small>
-          <b id="catColor"></b>
-        </div>
+
 
         <div class="detail">
-          <small>Last known area</small>
-          <b id="catArea"></b>
+
+          <small>
+            Breed
+          </small>
+
+          <b id="catBreed">
+            Persian mix
+          </b>
+
         </div>
+
+
+
+        <div class="detail">
+
+          <small>
+            Color
+          </small>
+
+          <b id="catColor">
+            White & Light black
+          </b>
+
+        </div>
+
+
+
+        <div class="detail">
+
+          <small>
+            Last known area
+          </small>
+
+          <b id="catArea">
+            Rawalpindi
+          </b>
+
+        </div>
+
 
       </div>
 
 
-      <!-- EXTRA MESSAGE -->
-      <p id="catMessage"></p>
+
+      <!-- CAT MESSAGE -->
+
+      <p id="catMessage">
+
+        Bella is friendly but may be scared.
+        Please keep her safe and contact me.
+
+      </p>
 
 
-      <!-- LOCATION BUTTON -->
+
+      <!-- =====================
+           SHARE LOCATION
+      ====================== -->
+
       <button
         class="button primary"
         id="locationButton"
       >
+
         📍 Share My Location
+
       </button>
 
 
-      <!-- LOCATION RESULT -->
+
+      <!-- =====================
+           LOCATION RESULT
+      ====================== -->
+
       <div
         class="location-box"
         id="locationBox"
       >
 
+
         <strong>
-          Location ready
+          📍 Location Ready
         </strong>
+
 
         <div
           class="location-status"
           id="locationStatus"
-        ></div>
+        >
+        </div>
+
+
 
         <a
           id="mapLink"
           class="map-link"
+
           target="_blank"
           rel="noopener"
         >
+
           Open location in Google Maps
+
         </a>
 
+
+
+        <!-- SEND LOCATION -->
 
         <button
           class="button green"
           id="sendLocationButton"
         >
+
           📤 Send Location
+
         </button>
 
+
+
+        <!-- COPY LOCATION -->
 
         <button
           class="button gray"
           id="copyLocationButton"
         >
-          Copy Location Link
+
+          📋 Copy Location Link
+
         </button>
+
 
       </div>
 
 
-      <!-- FACEBOOK -->
+
+      <!-- =====================
+           FACEBOOK
+      ====================== -->
+
       <a
         class="button blue"
+
         id="facebookButton"
+
         target="_blank"
         rel="noopener"
       >
+
         💬 Contact Owner on Facebook
+
       </a>
 
 
-      <!-- WHATSAPP -->
+
+      <!-- =====================
+           WHATSAPP
+      ====================== -->
+
       <a
         class="button green"
+
         id="whatsappButton"
+
         target="_blank"
         rel="noopener"
       >
+
         📱 Contact Owner on WhatsApp
+
       </a>
 
 
-      <!-- PHONE -->
+
+      <!-- =====================
+           CALL OWNER
+      ====================== -->
+
       <a
         class="button gray"
+
         id="phoneButton"
       >
+
         📞 Call Owner
+
       </a>
 
+
     </section>
+
 
   </main>
 
 
+
+  <!-- FOOTER -->
+
   <div class="footer">
-    Thank you for helping a lost pet get home safely.
+
+    Thank you for helping a lost pet
+    get home safely. 🐾
+
   </div>
+
 
 </div>
 
 
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
+
 
 /*
 ====================================================
-                EDIT YOUR CAT DETAILS
+                BELLA'S INFORMATION
 ====================================================
 */
 
 const CAT = {
 
-  name: "Luna",
+
+  name: "Bella",
+
 
   breed: "Persian mix",
 
-  color: "White & grey",
+
+  color: "White & Light black",
+
 
   area: "Rawalpindi",
 
+
   photo:
-    "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=85",
+    "https://images.unsplash.com/photo-1618217947571-0d151453342e?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
 
   message:
-    "Luna is friendly but may be frightened. Please do not chase her. If possible, keep her somewhere safe while contacting me.",
+    "Bella is friendly but may be scared. Please keep her safe and contact me.",
 
-
-  /*
-  FACEBOOK
-  Replace this with your Facebook profile/page URL.
-  */
 
   facebook:
-    "https://www.facebook.com/YOUR-FACEBOOK-PROFILE",
+    "https://www.facebook.com/badar.jamil.9678",
 
-
-  /*
-  WHATSAPP
-
-  IMPORTANT:
-  Use country code.
-
-  Pakistan example:
-  923001234567
-
-  Do NOT use:
-  +923001234567
-  03001234567
-  0300-1234567
-  */
 
   whatsapp:
-    "923001234567",
+    "923494704688",
 
-
-  /*
-  PHONE
-  */
 
   phone:
-    "+92 300 1234567"
+    "+923494704688"
 
 };
 
 
+
+
 /*
 ====================================================
-                 LOAD CAT INFORMATION
+               LOAD CAT INFORMATION
 ====================================================
 */
 
-document.getElementById("topName").textContent = CAT.name;
-
-document.getElementById("catName").textContent = CAT.name;
-
-document.getElementById("catBreed").textContent = CAT.breed;
-
-document.getElementById("catColor").textContent = CAT.color;
-
-document.getElementById("catArea").textContent = CAT.area;
-
-document.getElementById("catMessage").textContent = CAT.message;
-
-document.getElementById("catPhoto").src = CAT.photo;
 
 document.title =
-  CAT.name + " — Please Help Me Get Home";
+  CAT.name +
+  " — Please Help Me Get Home";
+
+
+document.getElementById("topName")
+  .textContent =
+  CAT.name;
+
+
+document.getElementById("catName")
+  .textContent =
+  CAT.name;
+
+
+document.getElementById("catBreed")
+  .textContent =
+  CAT.breed;
+
+
+document.getElementById("catColor")
+  .textContent =
+  CAT.color;
+
+
+document.getElementById("catArea")
+  .textContent =
+  CAT.area;
+
+
+document.getElementById("catMessage")
+  .textContent =
+  CAT.message;
+
+
+document.getElementById("catPhoto")
+  .src =
+  CAT.photo;
+
 
 
 /*
 ====================================================
-                 CONTACT BUTTONS
+                CONTACT BUTTONS
 ====================================================
 */
 
-document.getElementById("facebookButton").href =
+
+/* FACEBOOK */
+
+document.getElementById("facebookButton")
+  .href =
   CAT.facebook;
 
 
-document.getElementById("phoneButton").href =
-  "tel:" + CAT.phone.replace(/\s/g, "");
+
+/* PHONE */
+
+document.getElementById("phoneButton")
+  .href =
+  "tel:" +
+  CAT.phone.replace(/\s/g, "");
+
+
 
 
 /*
 ====================================================
-                  LOCATION SYSTEM
+                LOCATION SYSTEM
 ====================================================
 */
 
+
 let mapUrl = "";
+
 
 
 const locationButton =
   document.getElementById("locationButton");
 
+
 const locationBox =
   document.getElementById("locationBox");
+
 
 const locationStatus =
   document.getElementById("locationStatus");
 
 
-locationButton.addEventListener("click", function () {
-
-  locationButton.disabled = true;
-
-  locationButton.textContent =
-    "📍 Getting your location…";
+const mapLink =
+  document.getElementById("mapLink");
 
 
-  /*
-  Check browser support
-  */
 
-  if (!navigator.geolocation) {
+locationButton.addEventListener(
+  "click",
 
-    locationStatus.textContent =
-      "Your browser does not support location sharing.";
+  function () {
 
-    locationBox.classList.add("show");
 
-    locationButton.disabled = false;
+    locationButton.disabled =
+      true;
+
 
     locationButton.textContent =
-      "📍 Try Again";
-
-    return;
-  }
+      "📍 Getting your location...";
 
 
-  /*
-  Ask for GPS location
-  */
 
-  navigator.geolocation.getCurrentPosition(
-
-    function(position) {
-
-      const latitude =
-        position.coords.latitude;
-
-      const longitude =
-        position.coords.longitude;
+    /*
+    CHECK IF GPS IS SUPPORTED
+    */
 
 
-      /*
-      Create Google Maps URL
-      */
+    if (!navigator.geolocation) {
 
-      mapUrl =
-        "https://www.google.com/maps?q=" +
-        latitude +
-        "," +
-        longitude;
-
-
-      /*
-      Display coordinates
-      */
 
       locationStatus.textContent =
-        "Coordinates: " +
-        latitude.toFixed(6) +
-        ", " +
-        longitude.toFixed(6);
+        "Your browser does not support location sharing.";
 
 
-      /*
-      Google Maps link
-      */
-
-      document.getElementById("mapLink").href =
-        mapUrl;
+      locationBox.classList.add(
+        "show"
+      );
 
 
-      locationBox.classList.add("show");
+      locationButton.disabled =
+        false;
 
-
-      locationButton.disabled = false;
-
-      locationButton.textContent =
-        "📍 Location Updated";
-
-    },
-
-
-    function(error) {
-
-      if (error.code === 1) {
-
-        locationStatus.textContent =
-          "Location permission was denied. Please allow location access and try again.";
-
-      } else {
-
-        locationStatus.textContent =
-          "Could not get your location. Please try again.";
-
-      }
-
-
-      locationBox.classList.add("show");
-
-      locationButton.disabled = false;
 
       locationButton.textContent =
         "📍 Try Again";
 
-    },
 
+      return;
 
-    {
-      enableHighAccuracy: true,
-      timeout: 15000,
-      maximumAge: 0
     }
 
-  );
 
-});
+
+    /*
+    GET LOCATION
+    */
+
+
+    navigator.geolocation.getCurrentPosition(
+
+
+      /*
+      SUCCESS
+      */
+
+
+      function (position) {
+
+
+        const latitude =
+          position.coords.latitude;
+
+
+        const longitude =
+          position.coords.longitude;
+
+
+
+        /*
+        CREATE GOOGLE MAPS LINK
+        */
+
+
+        mapUrl =
+          "https://www.google.com/maps?q=" +
+          latitude +
+          "," +
+          longitude;
+
+
+
+        /*
+        SHOW COORDINATES
+        */
+
+
+        locationStatus.textContent =
+          "Your location is ready: " +
+          latitude.toFixed(6) +
+          ", " +
+          longitude.toFixed(6);
+
+
+
+        /*
+        ADD MAP LINK
+        */
+
+
+        mapLink.href =
+          mapUrl;
+
+
+
+        /*
+        SHOW LOCATION BOX
+        */
+
+
+        locationBox.classList.add(
+          "show"
+        );
+
+
+
+        locationButton.disabled =
+          false;
+
+
+
+        locationButton.textContent =
+          "📍 Location Updated";
+
+
+      },
+
+
+
+      /*
+      ERROR
+      */
+
+
+      function (error) {
+
+
+        if (error.code === 1) {
+
+
+          locationStatus.textContent =
+            "Location permission was denied. Please allow location access and try again.";
+
+
+        }
+
+
+        else if (error.code === 2) {
+
+
+          locationStatus.textContent =
+            "Your location could not be found. Please try again.";
+
+
+        }
+
+
+        else if (error.code === 3) {
+
+
+          locationStatus.textContent =
+            "Location request timed out. Please try again.";
+
+
+        }
+
+
+        else {
+
+
+          locationStatus.textContent =
+            "Could not get your location.";
+
+
+        }
+
+
+
+        locationBox.classList.add(
+          "show"
+        );
+
+
+
+        locationButton.disabled =
+          false;
+
+
+
+        locationButton.textContent =
+          "📍 Try Again";
+
+
+      },
+
+
+
+      /*
+      LOCATION SETTINGS
+      */
+
+
+      {
+
+
+        enableHighAccuracy:
+          true,
+
+
+        timeout:
+          15000,
+
+
+        maximumAge:
+          0
+
+      }
+
+
+    );
+
+
+  }
+
+);
+
+
 
 
 /*
@@ -612,158 +1041,309 @@ locationButton.addEventListener("click", function () {
 ====================================================
 */
 
-document
-  .getElementById("copyLocationButton")
-  .addEventListener("click", async function() {
+
+const copyLocationButton =
+  document.getElementById(
+    "copyLocationButton"
+  );
+
+
+
+copyLocationButton.addEventListener(
+
+  "click",
+
+  async function () {
+
 
     if (!mapUrl) {
+
       return;
+
     }
+
 
 
     try {
 
-      await navigator.clipboard.writeText(mapUrl);
 
-      this.textContent =
-        "✓ Location Link Copied";
-
-      setTimeout(() => {
-
-        this.textContent =
-          "Copy Location Link";
-
-      }, 2000);
-
-    } catch (error) {
-
-      alert(
-        "Please copy this link manually:\n\n" +
+      await navigator.clipboard.writeText(
         mapUrl
       );
 
+
+
+      copyLocationButton.textContent =
+        "✓ Location Link Copied";
+
+
+
+      setTimeout(
+
+        function () {
+
+
+          copyLocationButton.textContent =
+            "📋 Copy Location Link";
+
+
+        },
+
+        2500
+
+      );
+
+
     }
 
-  });
+
+    catch (error) {
+
+
+      alert(
+
+        "Please copy this link manually:\n\n" +
+        mapUrl
+
+      );
+
+
+    }
+
+
+  }
+
+);
+
+
 
 
 /*
 ====================================================
-                 SEND LOCATION
+                SEND LOCATION
 ====================================================
 */
 
-document
-  .getElementById("sendLocationButton")
-  .addEventListener("click", async function() {
+
+const sendLocationButton =
+  document.getElementById(
+    "sendLocationButton"
+  );
+
+
+
+sendLocationButton.addEventListener(
+
+  "click",
+
+  async function () {
+
 
     if (!mapUrl) {
+
       return;
+
     }
+
 
 
     const message =
+
       "I found " +
+
       CAT.name +
-      ". Here is the location where I found the cat: " +
+
+      ". Here is the location where I found Bella:\n\n" +
+
       mapUrl;
 
 
+
     /*
-    Use phone's native share menu
+    USE PHONE SHARE MENU
     */
+
 
     if (navigator.share) {
 
+
       try {
 
-        await navigator.share({
 
-          title:
-            "I found " + CAT.name,
+        await navigator.share(
 
-          text:
-            message,
 
-          url:
-            mapUrl
+          {
 
-        });
+
+            title:
+              "I found " +
+              CAT.name,
+
+
+            text:
+              message,
+
+
+            url:
+              mapUrl
+
+
+          }
+
+
+        );
+
+
 
         return;
 
-      } catch (error) {
-
-        // User closed share menu.
 
       }
 
+
+      catch (error) {
+
+
+        /*
+        User may have closed
+        the sharing window.
+        */
+
+
+      }
+
+
     }
+
 
 
     /*
-    If native sharing isn't available,
-    copy the message.
+    IF SHARING IS NOT AVAILABLE,
+    COPY THE MESSAGE
     */
+
 
     try {
 
-      await navigator.clipboard.writeText(message);
 
-      alert(
-        "Location message copied.\n\n" +
-        "Open Facebook Messenger or WhatsApp and paste it."
+      await navigator.clipboard.writeText(
+        message
       );
 
-    } catch (error) {
 
-      alert(message);
+
+      alert(
+
+        "Location message copied.\n\n" +
+
+        "Open Facebook Messenger or WhatsApp " +
+
+        "and paste the message to contact the owner."
+
+      );
+
 
     }
 
-  });
+
+    catch (error) {
+
+
+      alert(
+        message
+      );
+
+
+    }
+
+
+  }
+
+);
+
+
 
 
 /*
 ====================================================
-                   WHATSAPP
+                  WHATSAPP
 ====================================================
 */
 
-document
-  .getElementById("whatsappButton")
-  .addEventListener("click", function() {
+
+const whatsappButton =
+  document.getElementById(
+    "whatsappButton"
+  );
+
+
+
+whatsappButton.addEventListener(
+
+  "click",
+
+  function () {
+
 
     let message;
 
 
+
     if (mapUrl) {
 
+
       message =
+
         "I found " +
+
         CAT.name +
-        ". I am at this location:\n" +
+
+        ". Here is my location:\n\n" +
+
         mapUrl;
 
-    } else {
-
-      message =
-        "I found " +
-        CAT.name +
-        ". I would like to contact the owner.";
 
     }
 
 
-    this.href =
-      "https://wa.me/" +
-      CAT.whatsapp +
-      "?text=" +
-      encodeURIComponent(message);
+    else {
 
-  });
+
+      message =
+
+        "I found " +
+
+        CAT.name +
+
+        ". I would like to contact the owner.";
+
+
+    }
+
+
+
+    whatsappButton.href =
+
+      "https://wa.me/" +
+
+      CAT.whatsapp +
+
+      "?text=" +
+
+      encodeURIComponent(
+        message
+      );
+
+
+  }
+
+);
+
 
 </script>
 
+
 </body>
 </html>
+```
